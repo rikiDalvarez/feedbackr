@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import QuizCard from '../QuizCard/quizCard';
 
 function QuizList (props) {
