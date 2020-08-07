@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import ReactDOM from 'react-dom';
 
 import QuizCard from "../QuizCard/quizCard";
@@ -30,6 +30,7 @@ describe('QuizCard', () => {
 
   it('display number of questions a quiz has', () => {
     render(<QuizCard quiz={fakeQuizList[0]} />);
+    screen.debug();
     expect(screen.queryByText('Number of questions: 2')).toBeInTheDocument()
   });
 
@@ -42,4 +43,11 @@ describe('QuizCard', () => {
     const div = document.createElement('div');
     ReactDOM.render(<QuizCard quiz={fakeQuizList[0]}/>, div)
   })
+
+  it('links to the right quiz', () => {
+    render(<QuizCard quiz={fakeQuizList[0]} />);
+    screen.debug();
+    expect(screen.getByRole('link', {href:'/do-quiz?id=1'}))
+  })
+
 });
