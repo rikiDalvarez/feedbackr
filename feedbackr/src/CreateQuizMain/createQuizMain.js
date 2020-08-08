@@ -2,6 +2,7 @@ import React, { useState , useEffect } from 'react';
 
 // Functions
 import { updateQuiz, postQuestion, getOneQuiz } from '../apiService'
+import { handleSubmit, handleChange, renderAnswer } from '../CreateQuestionForm/formFunctions'
 
 // Components
 import ViewQuiz from '../ViewQuiz/viewQuiz';
@@ -47,7 +48,7 @@ function CreateQuizMain (props) {
       <CreateQuizForm quiz={quiz} setQuiz={setQuiz} quizId={quizId} setQuizId={setQuizId}/>
 
       <div className="create-quiz__create-question-form">
-        <CreateQuestionForm handleQuestionSubmit={handleQuestionSubmit} question={question} setQuestion={setQuestion} questionInitialState={questionInitialState}/>
+        <CreateQuestionForm handleChange={handleChange} handleSubmit={handleSubmit} renderAnswer={renderAnswer} handleQuestionSubmit={handleQuestionSubmit} question={question} setQuestion={setQuestion} questionInitialState={questionInitialState}/>
       </div>
 
       <div className="create-quiz__quiz-preview">
