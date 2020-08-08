@@ -1,13 +1,14 @@
 import React from 'react';
 
-import { handleSubmit, handleChange, renderAnswer } from './formFunctions'
-
 function CreateQuestionForm (props) {
   
   const question = props.question;
   const setQuestion = props.setQuestion;
   const questionInitialState = props.questionInitialState;
   const handleQuestionSubmit = props.handleQuestionSubmit;
+  const handleSubmit = props.handleSubmit;
+  const handleChange = props.handleChange;
+  const renderAnswer = props.renderAnswer;
   
   return (
     <form className="question-builder" onSubmit={(event)=>handleSubmit(event, handleQuestionSubmit, setQuestion, question, questionInitialState)}>
@@ -17,6 +18,7 @@ function CreateQuestionForm (props) {
       <div className="question-builder__input">
         <label>Question</label>
         <input
+          role='input_question'
           type="text"
           name="question"
           value={question.question}
@@ -27,6 +29,7 @@ function CreateQuestionForm (props) {
       <div className="question-builder__input">
         <label>Points</label>
         <input
+          role='input_points'
           type="number"
           name="points"
           value={question.points}
