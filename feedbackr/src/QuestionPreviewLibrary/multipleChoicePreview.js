@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 function MultipleChoicePreview (props) {
-  
+
   const question = props.question;
   const questionIndex = props.questionIndex;
   const quizAnswers = props.quizAnswers;
@@ -11,6 +11,7 @@ function MultipleChoicePreview (props) {
     event.persist();
     const isCorrectAnswer = question.correctAnswer == event.target.value ? true : false;
     console.log("quizAnwers", quizAnswers);
+
     setQuizAnswers(prevState => {
       console.log('prevState of quizAnswers', prevState);
       const newState = [...prevState];
@@ -38,7 +39,7 @@ function MultipleChoicePreview (props) {
       )}
     </div>
   )
-  
+
 }
 
 export default MultipleChoicePreview;

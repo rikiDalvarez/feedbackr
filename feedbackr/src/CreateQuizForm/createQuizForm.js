@@ -8,7 +8,7 @@ function CreateQuizForm (props) {
   const setQuizId = props.setQuizId;
   const quiz = props.quiz;
   const setQuiz = props.setQuiz;
-  
+
   const [isDisabled, setIsDisabled ] = useState(false);
 
   const handleQuizName = function (event) {
@@ -38,8 +38,8 @@ function CreateQuizForm (props) {
     <div className="create-quiz__details">
       <p>Quiz Name:</p>
       {isDisabled===false ?
-      <input type="text" value={quiz.name} onChange={handleQuizName} required></input> :
-      <input type="text" value={quiz.name} onChange={handleQuizName} required disabled></input>
+        <input type="text" value={quiz.name} onChange={handleQuizName} required></input> :
+        <input type="text" value={quiz.name} onChange={handleQuizName} required disabled></input>
       }
       <button onClick={handleCreateQuiz} className="create-quiz-submit">I've named my quiz</button>
     </div>
