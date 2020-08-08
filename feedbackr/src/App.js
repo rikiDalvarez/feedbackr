@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Component imports
-import NavBar from './Navbar/navbar'
+import NavBar from './navbar/navbar'
 import CreateQuizMain from './CreateQuizMain/createQuizMain';
 import DoQuiz from './DoQuiz/doQuiz'
 import QuizList from './QuizList/quizList'
 import { getAllQuizzes } from './apiService'
 
 function App() {
-  
+
   const [quiz, setQuiz] = useState({
     name: "",
     tags: "",
@@ -33,7 +33,7 @@ function App() {
         <Route path="/view-quizzes" render={(props)=> <QuizList {...props} quizList={db}/>}></Route>
         {/* footer */}
       </div>
-    </Router>  
+    </Router>
   );
 }
 

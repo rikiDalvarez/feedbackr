@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitForDomChange } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import CreateQuizForm from './CreateQuizForm';
@@ -17,12 +17,12 @@ describe('CreateQuizForm', () => {
   });
   it('should render textbox', () => {
     render(<CreateQuizForm quiz={''} />);
-    expect(screen.getByRole('input')).toBeInTheDocument();
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
-  it('fire event after text inside input', async () => {
-    const onChange = jest.fn();
-    render(
+  it('input must show in textbox after change', async () => {
+    const onChange = jest.fn(()=> 'JavaScript');
+    const { getByPlaceholderText, getByTestId, getByText, getByRole, findByText, findBy} = render(
       <CreateQuizForm
         quiz={{
           name: 'testValue',
@@ -30,17 +30,20 @@ describe('CreateQuizForm', () => {
           questions: [],
         }}
         setQuiz={onChange}
-        // onChange={onChange}
+        onChange={onChange}
         quizId={''}
       />
     );
     expect(screen.getByDisplayValue('testValue')).toBeInTheDocument();
-
-    fireEvent.change(screen.getByRole('input'), {
+    screen.debug()
+    fireEvent.change(screen.getByRole('textbox'), {
       target: { value: 'JavaScript' },
     });
+    // await waitForDomChange();
+
+    // expect(screen.findByText("Javascript")).toBeInTheDocument();
+    screen.debug()
     // await userEvent.type(screen.getByRole('input'), 'JavaScript');
-    screen.debug();
     expect(onChange).toHaveBeenCalledTimes(1);
     //expect(onChange).toHaveBeenCalledWith('Javascript', expect.anything());
   });

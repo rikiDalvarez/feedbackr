@@ -38,15 +38,15 @@ function CreateQuizMain (props) {
     }
     await postQuestion(newQuestionToDb);
     getOneQuiz(quizId, setQuiz);
-    
+
     console.log('db after question added', db);
     console.log('quiz after question added', quiz);
   }
-  
+
   return (
     <div className="create-quiz">
       <CreateQuizForm quiz={quiz} setQuiz={setQuiz} quizId={quizId} setQuizId={setQuizId}/>
-      
+
       <div className="create-quiz__create-question-form">
         <CreateQuestionForm handleChange={handleChange} handleSubmit={handleSubmit} renderAnswer={renderAnswer} handleQuestionSubmit={handleQuestionSubmit} question={question} setQuestion={setQuestion} questionInitialState={questionInitialState}/>
       </div>

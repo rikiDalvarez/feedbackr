@@ -3,7 +3,8 @@ import React from 'react';
 // Question types required by renderAnswer function
 import MultipleChoice from '../QuestionTypeLibrary/multipleChoice';
 
-export const handleSubmit = function (event, handleQuestionSubmit, setQuestion, question, questionInitialState) {
+export const handleSubmit = function (event, handleQuestionSubmit, setQuestion, question, questionInitialState)
+  {
     event.preventDefault();
     handleQuestionSubmit(question);
     setQuestion(questionInitialState);
