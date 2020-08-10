@@ -27,10 +27,26 @@ describe('return a quiz with and provided id',  () => {
         expect(quiz).toBeTruthy();
         expect(quiz).toHaveLength(1);
         expect(...quiz).toHaveProperty('name', 'babe')
-        
- 
-  
 });
+
+    it('should add one quiz to fakeQuizzes', async () => {  
+      const newQuiz = (id,name,question, answer) => {return {id:id , name:name, question:question, answer:answer}}
+      function addToQuizzes(newQuiz){
+        fakeQuizes.push(newQuiz)
+    }
+    const quiz1 = newQuiz(3, 'mj' , 'where?', 'here')
+    await addToQuizzes(quiz1);
+    expect(fakeQuizes).toHaveLength(3);
+});
+
+    for (let i = 0; i<fakeQuizes.length; i++) {
+        it( `quiz [${i}] should have propertys (id, name, question, answer)`, () => {
+            expect(fakeQuizes[i]).toHaveProperty('id')
+            expect(fakeQuizes[i]).toHaveProperty('name')
+            expect(fakeQuizes[i]).toHaveProperty('question')
+            expect(fakeQuizes[i]).toHaveProperty('answer')
+        })
+    }
 });
 
 
