@@ -14,7 +14,7 @@ const initialQuestion = {
   tags: "",
   time: 0,
 };
-const question = {
+let question = {
   questionType: 1,
   question: "hello",
   points: 0,
@@ -60,7 +60,7 @@ describe('handleSubmit', () => {
 })
 
 describe('renderAnswer', () => {
-  it.only('should create a new component with the new question', () => {
+  it('should create a new component with the new question', () => {
     const mock = jest.fn(() =>  render(<MultipleChoice setQuestion={setQuestion} question={question} />)
     );
     mock();
