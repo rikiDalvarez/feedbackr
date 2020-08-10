@@ -1,8 +1,33 @@
 import { handleChange, handleSubmit} from './formFunctions';
+import MultipleChoice from '../QuestionTypeLibrary/multipleChoice'
+import { render, screen} from '@testing-library/react';
+import React from 'react';
+
+const setQuestion = (value) => {question = value}
+const initialQuestion = {
+  question: "",
+  answerOptions: [{
+    value: 0,
+    label: ""
+  }],
+  correctAnswer: null,
+  tags: "",
+  time: 0,
+};
+const question = {
+  questionType: 1,
+  question: "hello",
+  points: 0,
+  answerOptions: [{
+      value: 0,
+      label: "answer 1"
+  }],
+  correctAnswer: null,
+  tags: "",
+  time: 0,
+}
 
 describe('handleChange', () => {
-  let question = {question: ''};
-  const setQuestion = (value) => {question = value}
 
   it('handleChange for question input', () => {
     const event = {target: { value: 'banana', name: 'question'}}
@@ -19,18 +44,7 @@ describe('handleChange', () => {
 })
 
 describe('handleSubmit', () => {
-  let question = {question: ''};
-  const setQuestion = (value) => {question = value}
-  const initialQuestion = {
-    question: "",
-    answerOptions: [{
-      value: 0,
-      label: ""
-    }],
-    correctAnswer: null,
-    tags: "",
-    time: 0,
-  }
+ 
   const event = {target: { value: 'banana'}, preventDefault: ()=> jest.fn()}
   const handleQuestionSubmit = (question) => {
     let newQuestion = {
@@ -43,5 +57,17 @@ describe('handleSubmit', () => {
     handleSubmit(event, handleQuestionSubmit, setQuestion, question, initialQuestion)
     expect(question.question).toBe('')
   })
-
 })
+
+describe('renderAnswer', () => {
+  it.only('should create a new component with the new question', () => {
+    const mock = jest.fn(() =>  render(<MultipleChoice setQuestion={setQuestion} question={question} />)
+    );
+    mock();
+    screen.debug()
+    expect(mock).toHaveBeenCalledTimes(1);
+    expect(screen.getByText(/Answer option/)).toBeInTheDocument()
+  });
+});
+
+
