@@ -21,7 +21,7 @@ const renderAnswer = jest.fn();
 describe('createQuestionForm', () => {
     it('should render component without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<CreateQuestionForm quiz={''} question={mockQuestion}/>, div)
+        ReactDOM.render(<CreateQuestionForm renderAnswer={renderAnswer} quiz={''} question={question} />, div)
     })
 
     it('should render "Question Information"', () => {

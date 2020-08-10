@@ -11,10 +11,12 @@ describe('Navbar', () => {
   })
 
   it('check if create quizes are in the document', () => {
-    expect(screen.getByText('Create quiz')).toBeInTheDocument();
+    render(<NavBar />)
+    expect(screen.getByText('Create Quiz')).toBeInTheDocument();
   })
 
   it('check if view quizzes are in the document', () => {
+    render(<NavBar />)
     expect(screen.getByText('View quizzes')).toBeInTheDocument();
   })
 
