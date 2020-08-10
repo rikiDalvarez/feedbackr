@@ -43,7 +43,7 @@ function CreateQuestionForm (props) {
       <div className="question-builder__input">
         <input type="submit" value="Create new Question" className="submit"></input>
       </div>
-      <a href="/view-quizzes">I've added my last question... I'm done</a>
+      <a data-testid="link_view_quizzes" href="/view-quizzes">I've added my last question... I'm done</a>
       <a href="/create-quiz">I'd like to make a new quiz</a>
     </form>
   )

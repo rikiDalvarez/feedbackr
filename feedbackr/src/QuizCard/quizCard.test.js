@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ReactDOM from 'react-dom';
 
 import QuizCard from "../QuizCard/quizCard";
@@ -12,7 +12,7 @@ const fakeQuizList=[
       {question: 'question1', points: 1},
       {question: 'question2', points: 2}
     ],
-    //posted: Date(),
+    posted: new Date()
   }
 ]
 
@@ -23,11 +23,13 @@ describe('QuizCard', () => {
     expect(screen.getByText(fakeQuizList[0].name)).toBeInTheDocument()
   });
 
-  // it('display a date when the quiz was posted', () => {
-  //   const date = `Posted: ${Date()}`;
-  //   render(<QuizCard quiz={fakeQuizList[0]} />);
-  //   expect(screen.getByText(date)).toBeInTheDocument()
-  // });
+  it('display a date when the quiz was posted', () => {
+    render(<QuizCard quiz={fakeQuizList[0]} />);
+    expect(fakeQuizList[0]).toMatchSnapshot({
+      name: expect.any(String),
+      posted: expect.any(Date),
+      });
+    });
 
   it('display number of questions a quiz has', () => {
     render(<QuizCard quiz={fakeQuizList[0]} />);
