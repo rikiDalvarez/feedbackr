@@ -36,7 +36,7 @@ describe('MultipleChoice', () => {
     );
 
 
-    // screen.debug()
+    // screen.debug()JET
     expect(screen.getByText("+")).toBeInTheDocument();
     expect(screen.getByText("-")).toBeInTheDocument();
 

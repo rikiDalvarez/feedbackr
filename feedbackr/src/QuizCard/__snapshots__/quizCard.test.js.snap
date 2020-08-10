@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuizCard display a date when the quiz was posted 1`] = `
+Object {
+  "_id": 1,
+  "name": Any<String>,
+  "posted": Any<Date>,
+  "questions": Array [
+    Object {
+      "points": 1,
+      "question": "question1",
+    },
+    Object {
+      "points": 2,
+      "question": "question2",
+    },
+  ],
+}
+`;
