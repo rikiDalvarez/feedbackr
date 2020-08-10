@@ -21,14 +21,14 @@ const renderAnswer = jest.fn();
 describe('createQuestionForm', () => {
     it('should render component without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<CreateQuestionForm renderAnswer={renderAnswer} question={''}/>, div)
+        ReactDOM.render(<CreateQuestionForm renderAnswer={renderAnswer} quiz={''} question={question} />, div)
     })
 
     it('should render "Question Information"', () => {
         render(<CreateQuestionForm renderAnswer={renderAnswer} question={''}/>)
         expect(screen.getByText('Question Information')).toBeInTheDocument();
     })
-    
+
     it("should display the right input value", () => {
         render(<CreateQuestionForm renderAnswer={renderAnswer} question={question} onChange={null} />);
         screen.debug();

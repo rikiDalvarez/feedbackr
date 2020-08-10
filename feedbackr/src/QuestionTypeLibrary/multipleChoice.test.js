@@ -4,11 +4,11 @@ import MultipleChoice from './multipleChoice';
 
 const mockQuestion = { // object form initial question state
   questionType: 1,
-  question: "",
+  question: "JavaScript",
   points: 0,
   answerOptions: [{
     value: 0,
-    label: ""
+    label: "JavaScript Label"
   }],
   correctAnswer: null,
   tags: "",
@@ -21,7 +21,7 @@ describe('MultipleChoice', () => {
     render(<MultipleChoice question={mockQuestion} />);
   });
 
-  it('onChange event must fire when there is a change in the input box', async () => {
+  it('must render the add and remove buttons correctly', async () => {
     const onChange = jest.fn();
     const setQuestion = jest.fn();
     const handleChange = jest.fn();
@@ -31,22 +31,15 @@ describe('MultipleChoice', () => {
         question={mockQuestion}
         setQuestion={setQuestion}
         handleChange={handleChange}
+        option={{label:'test'}}
       />
     );
-    const textBox = screen.getAllByRole('textbox')[0]
-    console.log(screen.getAllByRole('textbox')[0].value);
-    textBox.onChange = handleChange
-    fireEvent.change(textBox, {
-      target: { value: 'JavaScript' },
-    });
-    // await waitForDomChange();
 
-    // expect(screen.findByText("Javascript")).toBeInTheDocument();
-    screen.debug()
-    expect(textBox.value).toBe('JavaScript')
-    // await userEvent.type(screen.getByRole('input'), 'JavaScript');
-    //expect(handleChange).toHaveBeenCalledTimes(1);
-    //expect(onChange).toHaveBeenCalledWith('Javascript', expect.anything());
+
+    // screen.debug()JET
+    expect(screen.getByText("+")).toBeInTheDocument();
+    expect(screen.getByText("-")).toBeInTheDocument();
+
   });
 
 });

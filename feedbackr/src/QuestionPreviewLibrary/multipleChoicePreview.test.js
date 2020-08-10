@@ -86,8 +86,8 @@ describe('MultipleChoicePreview', () => {
   it('should map through answerOptions list and render the preview correctly', () => {
     mockQuiz.questions.map((quiz) => (
       render(<MultipleChoicePreview key={quiz._id} question={quiz} />
-        // question={mockQuiz} quiz={mockQuiz.questions}
-        )));
+
+      )));
       expect(screen.getByText('A: Answer A2')).toBeInTheDocument();
 
     })

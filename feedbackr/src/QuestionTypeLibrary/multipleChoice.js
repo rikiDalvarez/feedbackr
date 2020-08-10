@@ -1,10 +1,10 @@
 import React from 'react';
 
 function MultipleChoice (props) {
-  
+
   const question = props.question;
   const setQuestion = props.setQuestion;
-  
+
   const handleChange = function(event, index) {
     const value = event.target.value;
     if (event.target.name === "answerOptions") {
@@ -51,9 +51,11 @@ function MultipleChoice (props) {
   return (
     <div>
       {question.answerOptions.map((option, index) => (
-        <div key={index} className="question-builder__select"> 
-          <label>Answer option {String.fromCharCode(index+65)}</label>
+        <div key={index} className="question-builder__select">
+          <label htmlFor="answerOptions">Answer option {String.fromCharCode(index+65)}</label>
           <input
+            id="answerOptions"
+            data-testid="answerOptions"
             name="answerOptions"
             value={option.label}
             onChange={(event) => handleChange(event, index)}
