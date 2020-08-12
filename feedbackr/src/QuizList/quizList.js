@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import QuizCard from '../QuizCard/quizCard';
+import { useSelector, useDispatch } from 'react-redux';
+import fetchQuizzes from '../redux/actions/actions'
+function QuizList () {
 
-function QuizList (props) {
+  const dispatch = useDispatch(); //to update (data, type)
 
-  const quizList = props.quizList;
+  // const quizList = props.quizList;
+
+  useEffect(()=>{
+    dispatch(fetchQuizzes())
+  },[]);
+
+  const quizList = useSelector(state => state.dbReducer) //useSelector to fetch the state
+  console.log(quizList, 'db')
+
 
   return (
     <div className="quiz-list">

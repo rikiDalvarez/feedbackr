@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Component imports
-import NavBar from './navbar/navbar'
+import NavBar from './Navbar/navbar'
 import CreateQuizMain from './CreateQuizMain/createQuizMain';
 import DoQuiz from './DoQuiz/doQuiz'
 import QuizList from './QuizList/quizList'
-import { getAllQuizzes } from './apiService'
+
+// import { useSelector, useDispatch } from 'react-redux';
+// import fetchQuizzes from './redux/actions/actions'
 
 function App() {
+
+  // const dispatch = useDispatch(); //to update (data, type)
 
   const [quiz, setQuiz] = useState({
     name: "",
@@ -16,22 +20,24 @@ function App() {
     questions: []
   });
 
-  const [db, setDb] = useState([]);
+  //const [db, setDb] = useState([]);
 
-  console.log('DATABASE', db);
+  // useEffect(()=>{
+  //   dispatch(fetchQuizzes())
+  // }, []);
 
-  useEffect(()=>{
-    getAllQuizzes(setDb);
-  },[]);
+  // const db = useSelector(state => state.dbReducer) //useSelector to fetch the state
+  // console.log(db, 'db')
+
 
   return (
     <Router>
       <div className="App">
         <NavBar/>
-        <Route path="/create-quiz" render={(props)=> <CreateQuizMain {...props} quiz={quiz} setQuiz={setQuiz} db={db} setDb={setDb}/>}></Route>
+        {/* take out props from components */}
+        <Route path="/create-quiz" render={(props)=> <CreateQuizMain {...props} quiz={quiz} setQuiz={setQuiz} /*db={db}*/ setDb='hi' />}></Route>
         <Route path="/do-quiz" render={(props)=> <DoQuiz {...props} quiz={quiz}/>}></Route>
-        <Route path="/view-quizzes" render={(props)=> <QuizList {...props} quizList={db}/>}></Route>
-        {/* footer */}
+        <Route path="/view-quizzes" render={(props)=> <QuizList {...props} /*quizList={db}*//>}></Route>
       </div>
     </Router>
   );

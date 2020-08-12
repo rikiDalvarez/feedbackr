@@ -1,18 +1,47 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {setQuestion, setPoints, postQuestion} from '../redux/actions/actions';
 
 function CreateQuestionForm (props) {
-  
-  const question = props.question;
-  const setQuestion = props.setQuestion;
+  const quiz = useSelector(state => state.quizReducer)
+  const quizId = quiz._id
+  const dispatch = useDispatch()
+  //const question = quiz.questions
+  //const setQuestion = props.setQuestion;
   const questionInitialState = props.questionInitialState;
   const handleQuestionSubmit = props.handleQuestionSubmit;
-  const handleSubmit = props.handleSubmit;
-  const handleChange = props.handleChange;
+  const question = useSelector(state => state.questionReducer)
+
   const renderAnswer = props.renderAnswer;
-  
+
+  const newQuestion = {
+        quizId: quizId,
+        question: question
+      }
+
+  const handleChange = function(event) {
+    const value = event.target.value;
+    console.log(value)
+    if (event.target.name !== "answerOptions") {
+      if(event.target.type === 'text') {
+        dispatch(setQuestion(value))
+      } else {
+        dispatch(setPoints(value))
+      }
+    }
+  }
+
+
+
+  const handleSubmit = function (event, handleQuestionSubmit, setQuestion, question, questionInitialState)
+  {
+    event.preventDefault();
+    dispatch(postQuestion(newQuestion));
+  }
+
   return (
     <form className="question-builder" onSubmit={(event)=>handleSubmit(event, handleQuestionSubmit, setQuestion, question, questionInitialState)}>
-      
+
       <h3>Question Information</h3>
 
       <div className="question-builder__input">
@@ -22,7 +51,7 @@ function CreateQuestionForm (props) {
           type="text"
           name="question"
           value={question.question}
-          onChange={(event, index)=>handleChange(event, index, setQuestion, question)}
+          onChange={(event)=>handleChange(event)}
         ></input>
       </div>
 
@@ -33,13 +62,13 @@ function CreateQuestionForm (props) {
           type="number"
           name="points"
           value={question.points}
-          onChange={(event, index)=>handleChange(event, index, setQuestion, question)}
+          onChange={(event)=>handleChange(event)}
         ></input>
       </div>
-      
+
       <h3>Answer Options</h3>
       {renderAnswer(question.questionType, setQuestion, question)}
-      
+
       <div className="question-builder__input">
         <input type="submit" value="Create new Question" className="submit"></input>
       </div>
