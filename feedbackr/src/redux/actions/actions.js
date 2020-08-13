@@ -1,4 +1,4 @@
-//actions
+  //actions
 import {BASE_URL} from '../../apiService'
 
 export const setQuiz = quizName => ({
@@ -15,6 +15,7 @@ export const createQuiz = quiz => ({
   type: 'CREATE_QUIZ',
   quiz
 })
+
 
 export default function fetchQuizzes() {
   return dispatch => {
@@ -42,20 +43,32 @@ export const createQuestion = (question) => ({
 })
 
 
-export const postQuestion = (question) => {
+export const postQuestion = (newQuestion) => {
   return dispatch => {
     fetch(`${BASE_URL}/questions`, {
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
         },
-        body:JSON.stringify(question)
+        body:JSON.stringify(newQuestion)
       })
         .then(res => res.json())
         .then(question => dispatch(createQuestion(question)))
         .catch(err => console.error(err));
     }
   }
+
+
+export const getOneQuiz = (quizId) => {
+  return dispatch => {
+    fetch(`${BASE_URL}/quiz/${quizId}`)
+    .then(res => res.json())
+    .then(quiz => {
+      dispatch(createQuiz(quiz))
+    })
+    .catch(err => console.log(err));
+  }
+}
 
 
 export const postQuiz = (quiz) => {

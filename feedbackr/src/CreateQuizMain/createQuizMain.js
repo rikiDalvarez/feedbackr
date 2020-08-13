@@ -1,9 +1,6 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState  } from 'react';
 
-// Functions
-import { updateQuiz, postQuestion, getOneQuiz } from '../apiService'
-import { renderAnswer } from '../CreateQuestionForm/formFunctions'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 // Question types required by renderAnswer function
 // Components
 import ViewQuiz from '../ViewQuiz/viewQuiz';
@@ -25,14 +22,12 @@ function CreateQuizMain (props) {
     time: 0,
   }
 
-  // const [ quizId, setQuizId ] = useState("");
   const [ question, setQuestion ] = useState(questionInitialState);
   const setQuiz = props.setQuiz;
   const db = props.db;
   const setDb = props.setDb;
   //useSelector
   const quiz = useSelector(state => state.quizReducer)
-  console.log(quiz, 'quiz')
   const quizId = quiz._id
 
   // const handleQuestionSubmit = async function (newQuestion) {
@@ -50,7 +45,7 @@ function CreateQuizMain (props) {
       <CreateQuizForm quiz={quiz} setQuiz={setQuiz} quizId={quizId} setQuizId='hi'/>
 
       <div className="create-quiz__create-question-form">
-        <CreateQuestionForm handleChange='hi' handleSubmit='hi' renderAnswer={renderAnswer} handleQuestionSubmit='hi' question={question} setQuestion={setQuestion} questionInitialState={questionInitialState}/>
+        <CreateQuestionForm handleChange='hi' handleSubmit='hi' handleQuestionSubmit='hi' question={question} setQuestion={setQuestion} questionInitialState={questionInitialState}/>
       </div>
 
       <div className="create-quiz__quiz-preview">

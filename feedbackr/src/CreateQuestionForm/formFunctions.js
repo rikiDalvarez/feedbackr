@@ -53,6 +53,3 @@ import MultipleChoice from '../QuestionTypeLibrary/multipleChoice';
   //   }
   // }
 
-  export const renderAnswer = function (questionType, setQuestion, question) {
-    return <MultipleChoice setQuestion={setQuestion} question={question}/>
-  }

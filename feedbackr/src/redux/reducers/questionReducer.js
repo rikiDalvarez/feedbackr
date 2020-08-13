@@ -4,7 +4,7 @@ const questionInitialState = { // object form initial question state
   points: 0,
   answerOptions: [{
     value: 0,
-    label: ""
+    label: "ss"
   }],
   correctAnswer: null,
   tags: "",
@@ -20,12 +20,10 @@ const questionReducer = (state = questionInitialState, action) => {
     case 'SET_POINTS':
       return {...state, points:action.points};
     case 'CREATE_QUESTION':
-      return [...state, ...action.question]
+      return {...state, ...action.question}
     default:
       return state
   }
 }
-
-
 
 export default questionReducer

@@ -11,25 +11,13 @@ function CreateQuizForm (props) {
   const dispatch = useDispatch();
 
   const [isDisabled, setIsDisabled ] = useState(false);
+
   const [inputContent, setInputContent] = useState('')
 
   const handleQuizName = function (event) {
     event.persist();
     const quizName = event.target.value
     setInputContent(quizName)
-    // setQuiz(prevState => {
-    //   const newState = {
-    //     ...prevState,
-    //     name: event.target.value
-    //   }
-    //   return newState;
-    // })
-    // if (quizId.length>0) {
-    //   const updatedQuiz = {
-    //     quizId: props.quizId,
-    //     ...quiz
-    //   }
-    // }
   }
 
   const handleCreateQuiz = function () {
@@ -42,7 +30,6 @@ function CreateQuizForm (props) {
     dispatch(postQuiz(quiz));
     setIsDisabled(true);
   }
-  console.log(quiz, 'quiz')
 
   return (
     <div className="create-quiz__details">

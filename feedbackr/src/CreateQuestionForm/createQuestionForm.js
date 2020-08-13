@@ -1,23 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {setQuestion, setPoints, postQuestion} from '../redux/actions/actions';
+import {setQuestion, setPoints, postQuestion, getOneQuiz} from '../redux/actions/actions';
+import MultipleChoice from '../QuestionTypeLibrary/multipleChoice';
 
-function CreateQuestionForm (props) {
+function CreateQuestionForm () {
   const quiz = useSelector(state => state.quizReducer)
   const quizId = quiz._id
   const dispatch = useDispatch()
-  //const question = quiz.questions
-  //const setQuestion = props.setQuestion;
-  const questionInitialState = props.questionInitialState;
-  const handleQuestionSubmit = props.handleQuestionSubmit;
   const question = useSelector(state => state.questionReducer)
-
-  const renderAnswer = props.renderAnswer;
-
-  const newQuestion = {
-        quizId: quizId,
-        question: question
-      }
 
   const handleChange = function(event) {
     const value = event.target.value;
@@ -31,16 +21,27 @@ function CreateQuestionForm (props) {
     }
   }
 
-
-
-  const handleSubmit = function (event, handleQuestionSubmit, setQuestion, question, questionInitialState)
-  {
-    event.preventDefault();
-    dispatch(postQuestion(newQuestion));
+  const renderAnswer = function () {
+    return <MultipleChoice  />
   }
 
+
+  const handleSubmit =  (event, question) =>
+  {
+    event.preventDefault();
+    const newQuestion = {
+      quizId: quizId,
+      question: question
+    };
+    dispatch(postQuestion(newQuestion))
+    setTimeout(() => dispatch(getOneQuiz(quizId)), 1000);
+  }
+
+  console.log('quiz state', quiz)
+
+
   return (
-    <form className="question-builder" onSubmit={(event)=>handleSubmit(event, handleQuestionSubmit, setQuestion, question, questionInitialState)}>
+    <form className="question-builder" onSubmit={(event)=>handleSubmit(event, question)}>
 
       <h3>Question Information</h3>
 
