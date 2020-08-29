@@ -1,9 +1,7 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState  } from 'react';
 
-// Functions
-import { updateQuiz, postQuestion, getOneQuiz } from '../apiService'
-import { handleSubmit, handleChange, renderAnswer } from '../CreateQuestionForm/formFunctions'
-
+import { useSelector } from 'react-redux';
+// Question types required by renderAnswer function
 // Components
 import ViewQuiz from '../ViewQuiz/viewQuiz';
 import CreateQuestionForm from '../CreateQuestionForm/createQuestionForm';
@@ -24,31 +22,30 @@ function CreateQuizMain (props) {
     time: 0,
   }
 
-  const [ quizId, setQuizId ] = useState("");
   const [ question, setQuestion ] = useState(questionInitialState);
-  const quiz = props.quiz;
   const setQuiz = props.setQuiz;
   const db = props.db;
   const setDb = props.setDb;
+  //useSelector
+  const quiz = useSelector(state => state.quizReducer)
+  const quizId = quiz._id
 
-  const handleQuestionSubmit = async function (newQuestion) {
-    const newQuestionToDb = {
-      quizId: quizId,
-      question: newQuestion
-    }
-    await postQuestion(newQuestionToDb);
-    getOneQuiz(quizId, setQuiz);
+  // const handleQuestionSubmit = async function (newQuestion) {
+  //   const newQuestionToDb = {
+  //     quizId: quizId,
+  //     question: newQuestion
+  //   }
+  //   await postQuestion(newQuestionToDb);
+  //   getOneQuiz(quizId, setQuiz);
 
-    console.log('db after question added', db);
-    console.log('quiz after question added', quiz);
-  }
+  // }
 
   return (
     <div className="create-quiz">
-      <CreateQuizForm quiz={quiz} setQuiz={setQuiz} quizId={quizId} setQuizId={setQuizId}/>
+      <CreateQuizForm quiz={quiz} setQuiz={setQuiz} quizId={quizId} setQuizId='hi'/>
 
       <div className="create-quiz__create-question-form">
-        <CreateQuestionForm handleChange={handleChange} handleSubmit={handleSubmit} renderAnswer={renderAnswer} handleQuestionSubmit={handleQuestionSubmit} /*question={question} setQuestion={setQuestion}*/ questionInitialState={questionInitialState}/>
+        <CreateQuestionForm handleChange='hi' handleSubmit='hi' handleQuestionSubmit='hi' question={question} setQuestion={setQuestion} questionInitialState={questionInitialState}/>
       </div>
 
       <div className="create-quiz__quiz-preview">

@@ -1,9 +1,9 @@
 import React from 'react';
+import {setQuestion} from '../redux/actions/actions'
+import {useSelector} from 'react-redux'
+function MultipleChoice () {
 
-function MultipleChoice (props) {
-
-  const question = props.question;
-  const setQuestion = props.setQuestion;
+  const question = useSelector(state => state.questionReducer)
 
   const handleChange = function(event, index) {
     const value = event.target.value;
