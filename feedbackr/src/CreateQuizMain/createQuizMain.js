@@ -48,7 +48,7 @@ function CreateQuizMain (props) {
       <CreateQuizForm quiz={quiz} setQuiz={setQuiz} quizId={quizId} setQuizId={setQuizId}/>
 
       <div className="create-quiz__create-question-form">
-        <CreateQuestionForm handleChange={handleChange} handleSubmit={handleSubmit} renderAnswer={renderAnswer} handleQuestionSubmit={handleQuestionSubmit} question={question} setQuestion={setQuestion} questionInitialState={questionInitialState}/>
+        <CreateQuestionForm handleChange={handleChange} handleSubmit={handleSubmit} renderAnswer={renderAnswer} handleQuestionSubmit={handleQuestionSubmit} /*question={question} setQuestion={setQuestion}*/ questionInitialState={questionInitialState}/>
       </div>
 
       <div className="create-quiz__quiz-preview">

@@ -5,6 +5,7 @@ import CreateQuizForm from '../CreateQuizForm/createQuizForm'
 import CreateQuestionForm from '../CreateQuestionForm/createQuestionForm'
 import CreateQuestionPreview from '../CreateQuestionPreview/createQuestionPreview.js'
 import ViewQuiz from '../ViewQuiz/viewQuiz';
+import { renderAnswer } from '../CreateQuestionForm/formFunctions';
 
 const mockQuestion = { // object form initial question state
   questionType: 1,
@@ -95,7 +96,7 @@ describe('CreateQuestionForm', () => {
   it('renders component without crash', () => {
       const div = document.createElement('div');
       ReactDOM.render(
-        <CreateQuestionForm quiz={''} question={mockQuiz.questions[0]} />, div)
+        <CreateQuestionForm quiz={''} question={mockQuiz.questions[0]} renderAnswer ={renderAnswer} />, div)
   })
 
 })

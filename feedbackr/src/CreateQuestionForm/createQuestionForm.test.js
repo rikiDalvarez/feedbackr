@@ -44,7 +44,7 @@ describe('createQuestionForm', () => {
         expect(handleChange).toHaveBeenCalledTimes(1);
     })
 
-    it  ('should link to all quizzes', () => {
+    it('should link to all quizzes', () => {
         render(<CreateQuestionForm renderAnswer={renderAnswer} handleChange={handleChange} question={question} />);
         expect(screen.getByTestId('link_view_quizzes', {href:'/view-quizzes'}));
       })

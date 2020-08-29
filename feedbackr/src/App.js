@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Component imports
-import NavBar from './navbar/navbar'
+import NavBar from './Navbar/navbar'
 import CreateQuizMain from './CreateQuizMain/createQuizMain';
 import DoQuiz from './DoQuiz/doQuiz'
 import QuizList from './QuizList/quizList'
@@ -18,7 +18,6 @@ function App() {
 
   const [db, setDb] = useState([]);
 
-  console.log('DATABASE', db);
 
   useEffect(()=>{
     getAllQuizzes(setDb);

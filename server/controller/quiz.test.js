@@ -1,4 +1,4 @@
-const {
+    const {
     getQuizzes,
     getOneQuiz,
     postQuiz,
@@ -21,7 +21,7 @@ const fakeQuizes = [{
 ]
 
 const findById = (value) => {return fakeQuizes.filter(quiz => quiz.id=== value)}
-describe('return a quiz with and provided id',  () => {
+describe('return a quiz with a provided id',  () => {
     it('get one', async () => {
         const quiz = await findById(1);
         expect(quiz).toBeTruthy();
