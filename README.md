@@ -14,13 +14,13 @@ And that's it!! Happy coding
 
 # The App itself
 ## The create a quiz page
-![Create Quiz](/public/screenshots.png)
+![](feedbackr/public/screenshots.png)
 
 ## The view quizzes page
-![View Quizzes](/public/View_Quiz.png)
+![](feedbackr/public/View_Quiz.png)
 
 ## The quiz page
-![Do a Quiz](/public/Doing_a_Quiz.png)
+![Do a Quiz](feedbackr/public/Doing_a_Quiz.png)
 
 # Observations
 ## Improvements on the current code base
