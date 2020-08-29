@@ -14,7 +14,7 @@ And that's it!! Happy coding
 
 # The App itself
 ## The create a quiz page
-![](feedbackr/public/screenshots.png)
+![](feedbackr/public/Create_a_Quiz.png)
 
 ## The view quizzes page
 ![](feedbackr/public/View_Quiz1.png)
