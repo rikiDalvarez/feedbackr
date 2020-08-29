@@ -1,5 +1,5 @@
 # What is Feedbackr
-It's a web application where we can create multiple choice quizzes, share them, and ofcourse, try these quizzes and see how well we did using the score report feature. In today's world of online teaching, I found that a lot of teachers were having to manually create assignments on Google Classroom or Microsoft teams. These tools also only allow for basic text and multiple choice answer types. This project was started to create a platform where teachers can share assignments they built with each other so that they can spend more time with their students, and less time building assignments that their collegues have already built.
+It's a web application where we can create multiple choice quizzes, share them, and of course, try these quizzes and see how well we did using the score report feature. In today's world of online teaching, Rushabh found that a lot of teachers were having to manually create assignments on Google Classroom or Microsoft teams. These tools also only allow for basic text and multiple choice answer types. This project was started to create a platform where teachers can share assignments they built with each other so that they can spend more time with their students, and less time building assignments that their collegues have already built.
 
 # Getting started
 1. Fork the repo and clone your fork to your development environment
@@ -26,10 +26,9 @@ And that's it!! Happy coding
 ## Improvements on the current code base
 * The SASS could do with a bit of refactoring, the SCSS is not as DRY as it could be
 * Setting up multipart questions
-* Use Redux for better state management
 * Allow for the name of quiz to be saved before questions start being made
 * Unit testing could have made development smoother
-* Move to a relational database because the data is... well... relational
+* Move to a relational database because the data is relational
 * Use more functional programming fundamentals to make the app more testable and predictable
 
 ## The Future
