@@ -17,10 +17,10 @@ And that's it!! Happy coding
 ![](feedbackr/public/screenshots.png)
 
 ## The view quizzes page
-![](feedbackr/public/View_Quiz.png)
+![](feedbackr/public/View_Quiz1.png)
 
 ## The quiz page
-![Do a Quiz](feedbackr/public/Doing_a_Quiz.png)
+![Do a Quiz](feedbackr/public/Doing_a_Quiz1.png)
 
 # Observations
 ## Improvements on the current code base
