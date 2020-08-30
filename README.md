@@ -1,3 +1,11 @@
+![GitHub](https://img.shields.io/github/license/RushabhM2/feedbackr?style=plastic)
+![GitHub contributors](https://img.shields.io/github/contributors/RushabhM2/feedbackr?logo=github&style=plastic)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/RushabhM2/feedbackr?logo=github&style=plastic)
+![GitHub top language](https://img.shields.io/github/languages/top/RushabhM2/feedbackr)
+
+
+
+
 # What is Feedbackr
 It's a web application where we can create multiple choice quizzes, share them, and of course, try these quizzes and see how well we did using the score report feature. In today's world of online teaching, Rushabh found that a lot of teachers were having to manually create assignments on Google Classroom or Microsoft teams. These tools also only allow for basic text and multiple choice answer types. This project was started to create a platform where teachers can share assignments they built with each other so that they can spend more time with their students, and less time building assignments that their collegues have already built.
 
